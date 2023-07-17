@@ -1,0 +1,12 @@
+<div class="centered">
+    <div class="modal-box">
+        <h1 class="title">
+            Edit list
+        </h1>
+        <a></a>
+        <input #listTile class="input is-primary is-medium" value={{Text}} type="text" placeholder="Title">
+        <button class="button is-medium is-info has-text-white" routerLink=""><mat-icon>keyboard_backspace</mat-icon></button>
+        <button class="button is-medium is-danger has-text-white" routerLink="" (click)="delete()"><mat-icon>delete</mat-icon></button>
+        <button class="button is-medium is-success has-text-white" routerLink="" (click)="editList(listTile.value)"><mat-icon>save</mat-icon></button>
+    </div>
+</div>

@@ -8,6 +8,10 @@ import { NewListComponent } from './new-list/new-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NewTaskComponent } from './new-task/new-task.component';
+import {MatIconModule} from '@angular/material/icon';
+import { EditListComponent } from './edit-list/edit-list.component'
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -16,13 +20,16 @@ import { NewTaskComponent } from './new-task/new-task.component';
     AppComponent,
     TaskViewComponent,
     NewListComponent,
-    NewTaskComponent
+    NewTaskComponent,
+    EditListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    MatIconModule,
+    FormsModule
   ],
   providers: [LocalStorageInitializerProvider],
   bootstrap: [AppComponent]

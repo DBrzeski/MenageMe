@@ -1,3 +1,4 @@
+
 <div class="centered">
     <div class="task-manager-container">
         <div class="sidebar has-background-white">
@@ -5,11 +6,14 @@
                 Lists
             </h1>
             <div class="list-menu">
-                <a class="list-menu-item is-active"  *ngFor="let list of lists" (click)="redirectTo('/lists', list.id)">
-                    <p > 
-                        {{list.title}}
-                    </p>
-                </a>
+                <div class="list-element" *ngFor="let list of lists">
+                    <a class="list-menu-item is-active" (click)="redirectTo('/lists', list.id)">
+                        <p > 
+                            {{list.title}} 
+                        </p>
+                    </a>
+                    <div class="icon" (click)="redirectTo('/lists/edit', list.id)"><mat-icon class="is-right" >edit</mat-icon></div>
+                </div>
             </div>
         <button class="button is-primary has-text-white" routerLink="/new-list">+ New List</button>
         </div>
@@ -22,7 +26,7 @@
                 <p>{{task.text}}</p>
             </div>
             <button class="add-button button " routerLink="./new-task">
-               +
+               + 
             </button>
         </div>
     </div>

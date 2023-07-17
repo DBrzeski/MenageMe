@@ -6,10 +6,9 @@ import { Task} from './models/task';
   providedIn: 'root'
 })
 export class TaskService {
- 
 
   constructor() { }
-
+  
   readStorage(key: string){
     const data = localStorage.getItem(key);
     return data;
@@ -67,4 +66,69 @@ export class TaskService {
     data.push(newTask)
     this.saveStorage('task_list',data)
   }
+  getListbyId(listid: number){
+    var data = this.readStorage('title_list')
+    var ans
+    if (data != null){
+      var result = JSON.parse(data)
+    }
+    result.forEach((list: List) => {
+      if(listid == list.id){
+        ans = list
+      }
+    });
+    return ans;
+  }
+  editList(listid: number, entry: List){
+    console.log(entry);
+    var data = this.readStorage('title_list')
+    var newTable: List[] = [];
+    if (data != null){
+      var result = JSON.parse(data)
+    }
+    result.forEach((list: List) => {
+      if(listid == list.id){
+        newTable.push(entry)
+      }else{
+        newTable.push(list)
+      }
+    });
+    this.saveStorage('title_list',newTable)
+  }
+  deleteTaskByListId(listId: number){
+    var data = this.readStorage('task_list')
+    var newTable: Task[] = [];
+    var counter = 0;
+    if (data != null){
+      var result = JSON.parse(data)
+    }
+    result.forEach((task: Task) => {
+      if(listId != task.list_id){
+        counter++;
+        task.list_id -= 1;
+        task.id = counter;
+        newTable.push(task)
+      }
+    });
+    this.saveStorage('task_list',newTable)
+  }
+  deleteListById(listid: number){
+    var data = this.readStorage('title_list')
+    var newTable: List[] = [];
+    var counter = 0;
+    if (data != null){
+      var result = JSON.parse(data)
+    }
+    result.forEach((list: List) => {
+      if(listid != list.id){
+        counter++;
+        list.id = counter;
+        newTable.push(list)
+      }else {
+        this.deleteTaskByListId(listid)
+      }
+    });
+    this.saveStorage('title_list',newTable)
+  }
+  
 }
