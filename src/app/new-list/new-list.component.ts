@@ -13,8 +13,10 @@ export class NewListComponent {
   }
 
   createNewList(title: string){
-    this.taskService.createList(title);
-    console.log(localStorage.getItem('title_list'))
+    var Id = this.taskService.createList(title);
+    console.log(Id)
+
+    
   }
 
 }

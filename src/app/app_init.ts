@@ -1,7 +1,11 @@
 export function localStorageInitializer() {
   return (): Promise<any> => {
-    // Set up local storage here
-    localStorage.setItem('title_list', JSON.stringify([]));
+    const titleList = localStorage.getItem('title_list');
+    const tasklist = localStorage.getItem('task_list');
+    if (titleList != null || tasklist != null){
+      localStorage.setItem('title_list', JSON.stringify([{"id":1,"title":"Zuzia"}]));
+      localStorage.setItem('task_list', JSON.stringify([{"id":1,"text":"Zuzia","list_id":1}]));
+    }
     return Promise.resolve();
   };
 }

@@ -1,0 +1,11 @@
+<div class="centered">
+    <div class="modal-box">
+        <h1 class="title">
+            Add new task
+        </h1>
+        <a></a>
+        <input #listTile class="input is-primary is-medium" type="text" placeholder="text">
+        <button class="button is-medium is-info has-text-white" routerLink="">Back</button>
+        <button class="button is-medium is-success has-text-white" routerLink="" (click) = "createTask(listTile.value)">Add</button>
+    </div>
+</div>

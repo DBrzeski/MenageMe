@@ -5,14 +5,11 @@
                 Lists
             </h1>
             <div class="list-menu">
-                <a class="list-menu-item"  *ngFor="let list of lists" (click)="redirectTo('/lists', list.id)" routerLinkActive = "is-active">
+                <a class="list-menu-item is-active"  *ngFor="let list of lists" (click)="redirectTo('/lists', list.id)">
                     <p > 
                         {{list.title}}
                     </p>
                 </a>
-
-                
-
             </div>
         <button class="button is-primary has-text-white" routerLink="/new-list">+ New List</button>
         </div>
@@ -21,10 +18,12 @@
                 Tasks
             </h1>
 
-            <div class="taks" *ngFor="let task of tasks">
+            <div class="taks" *ngFor="let task of tasks" >
                 <p>{{task.text}}</p>
             </div>
-
+            <button class="add-button button " routerLink="./new-task">
+               +
+            </button>
         </div>
     </div>
 </div>

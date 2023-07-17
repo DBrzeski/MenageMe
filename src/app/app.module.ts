@@ -5,18 +5,26 @@ import { AppComponent } from './app.component';
 import { LocalStorageInitializerProvider } from './app_init';
 import { TaskViewComponent } from './task-view/task-view.component';
 import { NewListComponent } from './new-list/new-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { NewTaskComponent } from './new-task/new-task.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskViewComponent,
-    NewListComponent
+    NewListComponent,
+    NewTaskComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    RouterModule
   ],
-  providers: [LocalStorageInitializerProvider,],
+  providers: [LocalStorageInitializerProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
