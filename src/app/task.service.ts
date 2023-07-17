@@ -37,14 +37,14 @@ export class TaskService {
     }
     return list;
   }
-  getTasks(id: number) {
+  getTasks(id: number, status: string) {
     var result: Task[] = []
     var tasks = this.readStorage('task_list')
     if (tasks != null){
       var data = JSON.parse(tasks);
     }
     data.forEach((task: Task) => {
-      if(id == task.list_id){
+      if(id == task.list_id && status == task.state){
         console.log(task)
         result.push(task);
       }
@@ -80,7 +80,6 @@ export class TaskService {
     return ans;
   }
   editList(listid: number, entry: List){
-    console.log(entry);
     var data = this.readStorage('title_list')
     var newTable: List[] = [];
     if (data != null){
@@ -130,5 +129,45 @@ export class TaskService {
     });
     this.saveStorage('title_list',newTable)
   }
-  
+  editTask(entry: Task){
+    var data = this.readStorage('task_list')
+    var newTable: Task[] = [];
+    if (data != null){
+      var result = JSON.parse(data)
+    }
+    result.forEach((task: Task) => {
+      if(entry.id == task.id){ 
+        newTable.push(entry)
+      }else{
+        newTable.push(task)
+      }
+    });
+    this.saveStorage('task_list',newTable)
+  }
+  getTaskById(taskId: number){
+    var data = this.readStorage('task_list')
+    var ans
+    if (data != null){
+      var result = JSON.parse(data)
+    }
+    result.forEach((task: Task) => {
+      if(taskId == task.id){
+        ans = task
+      }
+    });
+    return ans;
+  }
+  deleteTaskById(taskid: number){
+    var data = this.readStorage('task_list')
+    var newTable: Task[] = [];
+    if (data != null){
+      var result = JSON.parse(data)
+    }
+    result.forEach((task: Task) => {
+      if(taskid != task.id){
+        newTable.push(task)
+      }
+    });
+    this.saveStorage('task_list',newTable)
+  }
 }

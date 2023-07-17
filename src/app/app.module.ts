@@ -11,6 +11,7 @@ import { NewTaskComponent } from './new-task/new-task.component';
 import {MatIconModule} from '@angular/material/icon';
 import { EditListComponent } from './edit-list/edit-list.component'
 import { FormsModule } from '@angular/forms';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 
 
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     TaskViewComponent,
     NewListComponent,
     NewTaskComponent,
-    EditListComponent
+    EditListComponent,
+    EditTaskComponent
   ],
   imports: [
     BrowserModule,

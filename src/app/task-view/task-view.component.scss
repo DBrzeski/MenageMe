@@ -27,6 +27,9 @@
     padding:42px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+    p{
+        margin-top: 10px;
+    }
 }
 .title{
     font-size: 28px;
@@ -53,7 +56,7 @@
         }
 
         &.is-active{
-            background-color: #cff8af;
+            background-color: lightcoral;
             color:$dark-green;
         }
     }
@@ -66,11 +69,17 @@
         border-bottom-left-radius: 0px;
     }
 }
-.taks{
+.task{
+    display:flex;
+    flex-direction: row;
     background: white;
     padding: 15px 20px;
     border-radius: 5px;
     margin-top: 10px;
+    .task-element{
+        width:90%;
+        margin-top: 0px;
+    }
     &:not(.completed) {
         cursor: pointer;
         transition: box-shadow 0.1s ease, transform 0.2s ease;
@@ -102,4 +111,16 @@
 .list-element{
     display:flex;
     flex-direction: row;
+}
+.taskheader{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.user{
+    display: flex;
+    flex-direction: row;
+    p{
+        margin:0px;
+    }
 }

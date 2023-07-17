@@ -12,18 +12,30 @@
                             {{list.title}} 
                         </p>
                     </a>
-                    <div class="icon" (click)="redirectTo('/lists/edit', list.id)"><mat-icon class="is-right" >edit</mat-icon></div>
+                    <div class="icon" (click)="redirectTo('/lists/edit', list.id)"><mat-icon>edit</mat-icon></div>
                 </div>
             </div>
         <button class="button is-primary has-text-white" routerLink="/new-list">+ New List</button>
         </div>
         <div class="tasklist has-background-light">
-            <h1 class="title has-text-primary">
-                Tasks
+            <div class="taskheader"><h1 class="title has-text-primary">
+                Tasks 
             </h1>
-
-            <div class="taks" *ngFor="let task of tasks" >
-                <p>{{task.text}}</p>
+            <div class="user"><mat-icon>person</mat-icon><p>Welcome back Jan!</p></div></div>
+            <p>Doing:</p>
+            <div class="task" *ngFor="let task of tasksdoing" (click)="redirectToTask(listId, task.id)">
+                <p class="task-element">{{task.text}}</p>
+                <div class="icon"><mat-icon>info</mat-icon></div>
+            </div>
+            <p>ToDo:</p>
+            <div class="task" *ngFor="let task of taskstodo" (click)="redirectToTask(listId, task.id)">
+                <p class="task-element">{{task.text}}</p>
+                <div class="icon"><mat-icon>info</mat-icon></div>
+            </div>
+            <p>Done:</p>
+            <div class="task" *ngFor="let task of tasksdone" (click)="redirectToTask(listId, listId)">
+                <p class="task-element">{{task.text}}</p>
+                <div class="icon"><mat-icon>info</mat-icon></div>
             </div>
             <button class="add-button button " routerLink="./new-task">
                + 

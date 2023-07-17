@@ -14,21 +14,30 @@ import { TaskService } from '../task.service';
 export class TaskViewComponent implements OnInit {
 
   lists: any;
-  tasks: any;
+  tasksdoing: any;
+  taskstodo: any;
+  tasksdone: any;
 
 constructor(private taskService: TaskService, private route: ActivatedRoute,private router:Router){}
 
 redirectTo(route: string, ...params: any[]) {
   this.router.navigate([route, ...params]);
 }
+redirectToTask(listid: number,taskid: number) {
+  var route = "/lists/"+ listid +'/edit-task/' + taskid
+  this.router.navigate([route]);
+}
 
-
+listId: number = 0;
 ngOnInit(){
   this.lists = this.taskService.getLists()
   this.route.params.subscribe(
     (params: Params) =>{
       console.log(params)
-      this.tasks = this.taskService.getTasks(params['listId']);
+      this.listId = params['listId'];
+      this.tasksdoing = this.taskService.getTasks(params['listId'],'Doing');
+      this.taskstodo = this.taskService.getTasks(params['listId'],'ToDo');
+      this.tasksdone = this.taskService.getTasks(params['listId'],'Done');
     }
   )
 
