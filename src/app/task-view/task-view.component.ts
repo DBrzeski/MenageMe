@@ -23,6 +23,7 @@ constructor(private taskService: TaskService, private route: ActivatedRoute,priv
 redirectTo(route: string, ...params: any[]) {
   this.router.navigate([route, ...params]);
 }
+
 redirectToTask(listid: number,taskid: number) {
   var route = "/lists/"+ listid +'/edit-task/' + taskid
   this.router.navigate([route]);
@@ -33,7 +34,6 @@ ngOnInit(){
   this.lists = this.taskService.getLists()
   this.route.params.subscribe(
     (params: Params) =>{
-      console.log(params)
       this.listId = params['listId'];
       this.tasksdoing = this.taskService.getTasks(params['listId'],'Doing');
       this.taskstodo = this.taskService.getTasks(params['listId'],'ToDo');

@@ -4,10 +4,10 @@
             Edit task
         </h1>
         <a></a>
-        <input #taskText class="input is-primary is-medium" value={{Text}} type="text" placeholder="Title">
+        <input #taskText class="input is-medium" value={{Text}} type="text" placeholder="Title">
         <button class="button is-medium is-info has-text-white" routerLink="" (click)="goBack();"><mat-icon>keyboard_backspace</mat-icon></button>
-        <button class="button is-medium is-danger has-text-white" routerLink="" (click)="deleteTask();"><mat-icon>delete</mat-icon></button>
-        <button class="button is-medium is-success has-text-white" routerLink="" (click)="editText(taskText.value)"><mat-icon>save</mat-icon></button><br><br>
+        <button class="button is-medium is-danger has-text-white has-background-danger-dark" routerLink="" (click)="deleteTask();"><mat-icon>delete</mat-icon></button>
+        <button class="button is-medium is-success has-text-white save" routerLink="" (click)="editText(taskText.value)"><mat-icon>save</mat-icon></button><br><br>
         <button class="button is-medium is-success has-text-white has-background-grey-light" routerLink="" (click)="changeState('ToDo')"><mat-icon>event</mat-icon></button>
         <button class="button is-medium is-success has-text-white has-background-grey" routerLink="" (click)="changeState('Doing')"><mat-icon>build</mat-icon></button>
         <button class="button is-medium is-success has-text-white has-background-grey-dark" routerLink="" (click)="changeState('Done')"><mat-icon>done_outline</mat-icon></button>

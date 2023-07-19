@@ -3,11 +3,11 @@
     <div class="task-manager-container">
         <div class="sidebar has-background-white">
             <h1 class="title has-text-primary">
-                Lists
+                Functionalities
             </h1>
             <div class="list-menu">
                 <div class="list-element" *ngFor="let list of lists">
-                    <a class="list-menu-item is-active" (click)="redirectTo('/lists', list.id)">
+                    <a class="list-menu-item" (click)="redirectTo('/lists', list.id)">
                         <p > 
                             {{list.title}} 
                         </p>

@@ -21,16 +21,13 @@ export class EditTaskComponent {
     this.route.params.subscribe(
       (params: Params) =>{
         this.Id = params['taskId']
-        console.log(this.Id)
         this.Entry = this.taskService.getTaskById(this.Id);
-        console.log(this.Entry)
         this.Text = this.Entry.text;
        }
      )
   }
   changeState(state: string){
       this.Entry.state = state;
-      console.log(this.Entry);
       this.taskService.editTask(this.Entry)
       this.goBack();
   }

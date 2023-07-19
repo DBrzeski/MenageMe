@@ -1,6 +1,6 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-$turquoise: #F92C00;
+$turquoise: #05b8ff;
 $green: #F92C85;
 $light-green: #F92A00;
 $light:#f8f8f8;
@@ -16,7 +16,7 @@ $input-shadow: none;
 
 
 html {
-    background: linear-gradient(to right top, $turquoise, $green);
+    background: linear-gradient(to right top, #a0dff9, #05b8ff);
 }
 
 html, body {

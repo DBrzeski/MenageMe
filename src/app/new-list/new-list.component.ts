@@ -14,9 +14,6 @@ export class NewListComponent {
 
   createNewList(title: string){
     var Id = this.taskService.createList(title);
-    console.log(Id)
-
-    
   }
 
 }

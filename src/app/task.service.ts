@@ -45,7 +45,6 @@ export class TaskService {
     }
     data.forEach((task: Task) => {
       if(id == task.list_id && status == task.state){
-        console.log(task)
         result.push(task);
       }
     });
@@ -62,7 +61,6 @@ export class TaskService {
       list_id: listid,
       text: taskText 
     }
-    console.log(newTask)
     data.push(newTask)
     this.saveStorage('task_list',data)
   }

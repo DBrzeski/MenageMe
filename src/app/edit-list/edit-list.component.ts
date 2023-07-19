@@ -20,7 +20,6 @@ export class EditListComponent {
     this.route.params.subscribe(
       (params: Params) =>{
         this.Id = params['listId']
-        console.log(this.Id)
         this.Entry = this.taskService.getListbyId(this.Id);
         this.Text = this.Entry.title;
        }
@@ -29,7 +28,6 @@ export class EditListComponent {
   editList(text: string){
     this.Entry.title = text;
     this.taskService.editList(this.Id,this.Entry)
-    console.log(this.taskService.getLists())
   }
   delete(){
     this.taskService.deleteListById(this.Id)

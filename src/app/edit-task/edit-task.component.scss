@@ -17,3 +17,12 @@
     font-weight: bold;
     margin: 0px 10px;
 }
+.save{
+    background: green;
+    &:hover{
+        background: rgb(0, 102, 0);
+    }
+}
+input{
+    border:2px solid black;
+}

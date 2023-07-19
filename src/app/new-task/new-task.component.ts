@@ -16,7 +16,6 @@ ngOnInit(){
     this.route.params.subscribe(
       (params: Params) =>{
         this.Id = params['listId']
-        console.log(this.Id)
        }
      )
   }
